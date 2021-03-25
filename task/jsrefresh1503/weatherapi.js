@@ -9,7 +9,7 @@ let request = new XMLHttpRequest();
 // Open a new connection
 request.open(
   "GET",
-  `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=c31c65ace258476b516f78f48393a69b`,
+  `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=c31c65ace258476b516f78f48393a69b`,
   true
 );
 
