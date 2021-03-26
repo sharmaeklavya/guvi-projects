@@ -1,0 +1,24 @@
+body{
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+
+hr{
+    height: 1px;
+    background: black;
+}
+
+.page-title{
+    word-spacing: 1.5rem;
+}
+
+.article-title{
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.date{
+    position: relative;
+    left: 0;
+    bottom: -.5rem;
+}
