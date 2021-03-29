@@ -11,7 +11,7 @@ Guvi - Tasks/ Projects/ Home-work / 22 March
         <div> Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
         <div> Guvi Geek Network </div>
       </body>
-    </html>
+```  </html>
 
 2. Have fixed the bug in the second snippet as well
 ```<html lang="en">
