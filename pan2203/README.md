@@ -1,7 +1,7 @@
 # guvi
 Guvi - Tasks/ Projects/ Home-work / 22 March
 
-1. Fixed the bug in below snippet
+1. Havef ixed the bug in below snippet
 ``` <!DOCTYPE html>
     <html lang="en">
       <head>
@@ -11,4 +11,4 @@ Guvi - Tasks/ Projects/ Home-work / 22 March
         <div> Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
         <div> Guvi Geek Network </div>
       </body>
-``` </html>
+    </html>
