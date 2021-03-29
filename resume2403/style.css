@@ -16,7 +16,6 @@ body{
     margin: 1rem auto;
 }
 
-
 .first-bg{
     width: 100%;
     height: 20rem;
@@ -46,7 +45,7 @@ body{
 .p-name{
     width: 25%;
     margin: 0 auto;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 400;
     text-transform: uppercase;
     color: whitesmoke;
