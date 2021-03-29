@@ -1,2 +1,14 @@
 # guvi
-Guvi - Tasks/ Projects/ Home-work
+Guvi - Tasks/ Projects/ Home-work / 22 March
+
+1. Fixed the bug in below snippet
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+          <title>Document</title>
+      </head>
+      <body>
+        <div> Lorem ipsum dolor sit amet consectetur adipisicing elit. </div>
+        <div> Guvi Geek Network </div>
+      </body>
+    </html>
