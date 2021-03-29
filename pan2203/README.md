@@ -1,8 +1,9 @@
-# guvi
+# Guvi
 Guvi - Tasks/ Projects/ Home-work / 22 March
 
 1. Have fixed the bug in below snippet
-``` <!DOCTYPE html>
+``` 
+    <!DOCTYPE html>
     <html lang="en">
       <head>
           <title>Document</title>
@@ -15,7 +16,9 @@ Guvi - Tasks/ Projects/ Home-work / 22 March
 ```
 
 2. Have fixed the bug in the second snippet as well
-```<html lang="en">
+```
+    <!DOCTYPE html>
+    <html lang="en">
     <head>
         <title>Guvi document</title>
     </head>
