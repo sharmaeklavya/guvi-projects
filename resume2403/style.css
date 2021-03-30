@@ -20,30 +20,32 @@ body{
     width: 100%;
     height: 20rem;
     background-color: rgba(31, 41, 55);
-    text-align: center;
+    text-align: center;    
 }
 
-.p-photo{
-    width: 15%;
-    border-radius: 50%;
-    border: 5px dotted yellow;
+.img{
+    width: 100%;
     position: relative;
-    top: 5rem;
+    top: 6rem;
     left: 0;
 }
 
+.p-photo{
+    width: 10rem;
+    border-radius: 50%;
+    border: 5px dotted yellow;        
+}
+
 .second-bg{
-    height: 2rem;
-    margin: 0 auto;
-    background-color: whitesmoke;
+    height: 2rem;    
     text-align: center;
+    background-color: whitesmoke;    
     position: relative;
     top: -5rem;
     left: 0;
 }
 
-.p-name{
-    width: 25%;
+.p-name{    
     margin: 0 auto;
     font-size: 2.5rem;
     font-weight: 400;
@@ -51,10 +53,7 @@ body{
     color: whitesmoke;
     background-color: orange;
     padding: 0.5rem 1rem;
-    border-radius: 5px;
-    position: relative;
-    top: -1rem;
-    left: 0;
+    border-radius: 5px;    
 }
 
 .third-bg{
