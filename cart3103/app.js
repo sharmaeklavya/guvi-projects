@@ -22,7 +22,7 @@ let productData = [
     product_name: "Generic Steel Hat",
     product_price: "449.00",
     product_description:
-      "Computer Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus, dolorum.",
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus, dolorum.",
     product_img: "https://loremflickr.com/250/125/dog",
     product_rating: 5,
   },
