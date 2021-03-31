@@ -82,7 +82,7 @@ let productData = [
   },
   {
     id: "10",
-    product_name: "Gorgeous Rubber Computer",
+    product_name: "Gorgeous Computer",
     product_price: "357.00",
     product_description:
       "Sausages Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus, dolorum.",
@@ -139,8 +139,13 @@ function newElement(ele, className = "", eleValue = "") {
 function totalStars(item) {
   let rating = Math.round(item.product_rating);
   let stars = [];
+  let starsCount = 0;
   for (let i = 0; i < rating; i++) {
     stars.push('<i class="fas fa-star"></i>');
+  }
+  while (stars.length < 5) {
+    stars.push('<i class="far fa-star"></i>');
+    starsCount++;
   }
   return stars.join("");
 }
