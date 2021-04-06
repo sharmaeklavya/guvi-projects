@@ -263,7 +263,11 @@ function layout() {
   container.classList.add("container-fluid");
   formCol.classList.remove("col-lg-12");
   formCol.classList.add("col-lg-6");
+  formCol.style.transitionDuration = "500ms";
+  formCol.style.transitionProperty = "all";
   tableCol.classList.remove("col-lg-12");
   tableCol.classList.remove("d-none");
   tableCol.classList.add("col-lg-6");
+  tableCol.style.transitionDuration = "1000ms";
+  tableCol.style.transitionProperty = "all";
 }
