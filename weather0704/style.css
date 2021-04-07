@@ -1,0 +1,9 @@
+.button{
+    transition: all 1000 ease-out; 
+}
+
+.country-card{
+    transition-property: all;
+    transition-duration: 5000ms;
+    transition-timing-function: ease-in-out;
+}
