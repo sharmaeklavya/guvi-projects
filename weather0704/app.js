@@ -1,6 +1,6 @@
 // Bootstrap
 const container = createBootstrap("div", "container");
-const colTitle = createBootstrap("div", "my-3 title");
+const colTitle = createBootstrap("div", "mb-3 title");
 const title = createBootstrap("h1", "head text-center");
 title.innerHTML = "Weather Info";
 const rowSelector = createBootstrap("div", "row");
@@ -10,7 +10,7 @@ const inputSelect = createBootstrap("select", "custom-select");
 inputSelect.id = "inputGroupSelect";
 inputSelect.innerHTML = `<option value ="Select One" selected disabled>Select One</div>`;
 
-const rowCard = createBootstrap("div", "row mx-auto");
+const rowCard = createBootstrap("div", "row mx-auto card-row");
 
 inputSelectGroup.append(inputSelect);
 // submitBtnGroup.appendChild(submitBtn);
@@ -38,7 +38,6 @@ fetch(countryUrl)
   .then((res) => res.json())
   .then((data) => {
     list(data);
-
     // Select option value change
     selectBar.addEventListener("change", (e) => {
       const countryName = e.target.value;
@@ -61,6 +60,7 @@ fetch(countryUrl)
 
 // creating select list of countries
 function list(countrylist) {
+  // displayCard(countrylist);
   countrylist.forEach((country) => {
     const selectOption = document.createElement("option");
     selectOption.setAttribute("value", country.name);
@@ -96,3 +96,24 @@ function cityWeather(city) {
     btn.classList.add("btn-success");
   });
 }
+
+// function displayCard(country_card) {
+//   const country = [country_card[0], country_card[1], country_card[2]];
+//   let cardBody = [];
+//   for (let i = 0; i < country.length; i++) {
+//     const colCard = createBootstrap("div", "col-md-4 mt-3");
+//     colCard.innerHTML = `
+//       <div class="card country-card" style="width: 18rem;">
+//           <img src="${country[i].flag}" class="card-img-top" alt="...">
+//           <div class="card-body">
+//               <h5 class="card-title">${country[i].name}</h5>
+//               <p class="card-text">Capital: ${country[i].capital}</p>
+//               <p class="card-text">Region: ${country[i].region}</p>
+//               <p class="card-text">Code: ${country[i].alpha3Code}</p>
+//               <button class="button btn btn-primary">Weather</button>
+//           </div>
+//         </div>`;
+//     cardBody.push(colCard);
+//   }
+//   rowCard.append(...cardBody);
+// }
