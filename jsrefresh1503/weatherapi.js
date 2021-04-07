@@ -16,8 +16,13 @@ request.open(
 request.onload = function () {
   // Begin accessing JSON data
   let data = JSON.parse(this.response);
-  console.log(data.name);
-  console.log(data.main);
+  console.log("Place: " + data.name);
+  console.log(
+    "Humidity: " + data.main.humidity,
+    "Temperature: " + data.main.temp,
+    "Min Temp: " + data.main.temp_max,
+    "Max Temp: " + data.main.temp_min
+  );
 };
 
 // Send request
