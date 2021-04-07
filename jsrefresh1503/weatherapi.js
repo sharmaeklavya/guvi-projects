@@ -17,6 +17,7 @@ request.onload = function () {
   // Begin accessing JSON data
   let data = JSON.parse(this.response);
   console.log(data.name);
+  console.log(data.main);
 };
 
 // Send request
