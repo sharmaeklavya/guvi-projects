@@ -1,0 +1,14 @@
+.page-btn{
+    padding: 0.5rem 1rem;
+    outline: none;
+    border-right: 1px solid gainsboro;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.page-btn:nth-child(1){
+    border-top-left-radius: 10px;
+}
+
+.page-btn:nth-last-child(1){
+    border-bottom-right-radius: 10px;
+}
