@@ -1,24 +1,17 @@
 // Bootstrap
 const container = createBootstrap("div", "container");
 const rowTitle = createBootstrap("div", "row");
-const colTitle = createBootstrap("div", "col-md-12 mt-5");
-const title = createBootstrap(
-  "h1",
-  "h1 text-center bg-primary text-white shadow-sm p-3 mb-5 bg-info rounded"
-);
-title.innerHTML = "Country Weather Info";
+const colTitle = createBootstrap("div", "col-lg-12 mt-5 mb-5 title");
+const title = createBootstrap("h1", "h1 text-center rounded");
+title.innerHTML = "Weather Info";
 const rowSelector = createBootstrap("div", "row");
-const colSelector = createBootstrap("div", "col-md-12");
+const colSelector = createBootstrap("div", "col-lg-12");
 const inputSelectGroup = createBootstrap("div", "input-group");
 const inputSelect = createBootstrap("select", "custom-select");
 inputSelect.id = "inputGroupSelect";
 inputSelect.innerHTML = `<option value ="Select One" selected disabled>Select One</div>`;
-// const submitBtnGroup = createBootstrap("div", "input-group-append");
-// const submitBtn = createBootstrap("button", "btn btn-outline-secondary");
-// submitBtn.setAttribute("type", "button");
-// submitBtn.innerHTML = "Submit";
 
-const rowCard = createBootstrap("div", "row");
+const rowCard = createBootstrap("div", "row mx-auto");
 
 inputSelectGroup.append(inputSelect);
 // submitBtnGroup.appendChild(submitBtn);
@@ -80,9 +73,9 @@ function list(countrylist) {
 
 //creating card
 function card(country) {
-  const cardCol = createBootstrap("div", "col-md-4 my-4");
-  cardCol.innerHTML = `
-    <div class="card " style="width: 18rem;">
+  const colCard = createBootstrap("div", "col-md-4 mt-3");
+  colCard.innerHTML = `
+    <div class="card country-card" style="width: 18rem;">
         <img src="${country.flag}" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">${country.name}</h5>
@@ -92,7 +85,7 @@ function card(country) {
             <button class="button btn btn-primary">Weather</button>
         </div>
       </div>`;
-  rowCard.insertBefore(cardCol, rowCard.childNodes[0]);
+  rowCard.insertBefore(colCard, rowCard.childNodes[0]);
 }
 
 // event listener to show capital weather

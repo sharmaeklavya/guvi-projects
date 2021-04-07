@@ -1,3 +1,12 @@
+.title{
+    background-color: rgba(59, 130, 246);
+    color: whitesmoke;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 80px;
+    padding: 1rem;    
+}
+
 .button{
     transition: all 1000 ease-out; 
 }
