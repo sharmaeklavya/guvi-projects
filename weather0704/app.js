@@ -1,8 +1,7 @@
 // Bootstrap
 const container = createBootstrap("div", "container");
-const rowTitle = createBootstrap("div", "row");
-const colTitle = createBootstrap("div", "col-lg-12 mt-5 mb-5 title");
-const title = createBootstrap("h1", "h1 text-center rounded");
+const colTitle = createBootstrap("div", "my-3 title");
+const title = createBootstrap("h1", "head text-center");
 title.innerHTML = "Weather Info";
 const rowSelector = createBootstrap("div", "row");
 const colSelector = createBootstrap("div", "col-lg-12");
@@ -17,10 +16,9 @@ inputSelectGroup.append(inputSelect);
 // submitBtnGroup.appendChild(submitBtn);
 colSelector.appendChild(inputSelectGroup);
 colTitle.append(title);
-rowTitle.appendChild(colTitle);
 rowSelector.appendChild(colSelector);
-container.append(rowTitle, rowSelector, rowCard);
-document.body.appendChild(container);
+container.append(rowSelector, rowCard);
+document.body.append(colTitle, container);
 
 function createBootstrap(ele, className = "") {
   let element = document.createElement(ele);

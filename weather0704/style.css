@@ -1,10 +1,9 @@
-.title{
-    background-color: rgba(59, 130, 246);
+.head{
+    background-color: rgba(31, 41, 55);
     color: whitesmoke;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    height: 80px;
-    padding: 1rem;    
+    padding: 1rem 0;
+    font-size: 1.8rem;
+    font-weight: 400;
 }
 
 .button{
@@ -15,4 +14,5 @@
     transition-property: all;
     transition-duration: 5000ms;
     transition-timing-function: ease-in-out;
+    margin: 0 auto;
 }
