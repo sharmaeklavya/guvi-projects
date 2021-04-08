@@ -24,7 +24,7 @@ fetch(countryUrl)
   .then((res) => res.json())
   .then((countrydata) => {
     for (let i = 0; i < countrydata.length; i++) {
-      const colCard = createBootstrap("div", "col-md-4 mt-3");
+      const colCard = createBootstrap("div", "col-md-4 my-3");
       const card = createBootstrap("div", "card mx-auto");
       card.style.width = "18rem";
       const image = createBootstrap("img", "card-img-top");
