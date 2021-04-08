@@ -41,17 +41,17 @@ const apiKey = "&api_key=YOrFrobTbZln2vz9RNNpA66vwGVuZGsP&limit=5";
 const button = document.querySelector(".button");
 
 //Event listener
-fetch(randomUrl)
-  .then((res) => res.json())
-  .then((word) => {
-    return fetch(giphyUrl + word.toString() + apiKey);
-  })
-  .then((res) => res.json())
-  .then((url) => {
-    button.addEventListener("click", () => {
+button.addEventListener("click", () => {
+  fetch(randomUrl)
+    .then((res) => res.json())
+    .then((word) => {
+      return fetch(giphyUrl + word.toString() + apiKey);
+    })
+    .then((res) => res.json())
+    .then((url) => {
       giphyGen(url);
     });
-  });
+});
 
 //Function to generate gifhy
 function giphyGen(url) {
