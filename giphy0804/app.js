@@ -8,7 +8,6 @@ title.style.color = "whitesmoke";
 const rowCard = createBootstrap("div", "row card-row");
 const colCard = createBootstrap("div", "col-lg-12");
 const card = createBootstrap("div", "card mx-auto");
-card.style.width = "25rem";
 const imgContainer = createBootstrap("div", "card-img");
 imgContainer.style.height = "25rem";
 imgContainer.innerHTML = `
