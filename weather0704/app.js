@@ -54,12 +54,14 @@ fetch(countryUrl)
   .catch((error) => console.log(error));
 
 // weather
-function cityWeather(city, button) {
+function cityWeather(city, btn) {
   const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.capital}&units=metric&appid=c31c65ace258476b516f78f48393a69b`;
   fetch(weatherUrl)
     .then((res) => res.json())
     .then((data) => {
-      button.innerHTML = `Capital Weather: ${data.main.temp} C<sup>o</sup>`;
+      btn.innerHTML = `Capital Weather: ${data.main.temp} C<sup>o</sup>`;
+      btn.classList.remove("btn-primary");
+      btn.classList.add("btn-success");
     })
     .catch((error) => console.log(error));
 }
