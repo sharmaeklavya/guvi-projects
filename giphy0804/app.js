@@ -45,29 +45,15 @@ const button = document.querySelector(".button");
 button.addEventListener("click", () => {
   randomGiphy(randomUrl);
 });
-// button.addEventListener("click", () => {
-//   fetch(randomUrl)
-//     .then((res) => res.json())
-//     .then((word) => {
-//       return fetch(giphyUrl + word.toString() + apiKey);
-//     })
-//     .then((res) => res.json())
-//     .then((url) => {
-//       giphyGen(url);
-//     });
-// });
 
 async function randomGiphy(url) {
   try {
     const randomWordsUrl = await fetch(url);
     const randomWordsJson = await randomWordsUrl.json();
-    console.log(randomWordsJson);
     const giphyData = await fetch(
       giphyUrl + randomWordsJson[0].toString() + apiKey
     );
-    console.log(giphyData);
     const giphyDataJson = await giphyData.json();
-    giphyGen(giphyDataJson);
   } catch (error) {
     console.log(error);
   }
@@ -82,3 +68,15 @@ function giphyGen(url) {
   }
   button.classList.toggle("btn-success");
 }
+
+// button.addEventListener("click", () => {
+//   fetch(randomUrl)
+//     .then((res) => res.json())
+//     .then((word) => {
+//       return fetch(giphyUrl + word.toString() + apiKey);
+//     })
+//     .then((res) => res.json())
+//     .then((url) => {
+//       giphyGen(url);
+//     });
+// });
