@@ -6,10 +6,11 @@ title.innerHTML = "Random Giphy Generator";
 title.style.backgroundColor = "black";
 title.style.color = "whitesmoke";
 const rowCard = createBootstrap("div", "row card-row");
-const colCard = createBootstrap("div", "col-lg-12");
+const colCard = createBootstrap("div", "col-md-12");
 const card = createBootstrap("div", "card mx-auto");
+card.style.width = "22rem";
 const imgContainer = createBootstrap("div", "card-img");
-imgContainer.style.height = "25rem";
+imgContainer.style.height = "20rem";
 imgContainer.innerHTML = `
           <img src="https://media.giphy.com/media/3oEduTcqgubNJO8xag/giphy.gif" style="height:100%;" class="card-img-top" alt="happy-big-smile">`;
 const cardBody = createBootstrap("div", "card-body mx-auto");
@@ -42,16 +43,35 @@ const button = document.querySelector(".button");
 
 //Event listener
 button.addEventListener("click", () => {
-  fetch(randomUrl)
-    .then((res) => res.json())
-    .then((word) => {
-      return fetch(giphyUrl + word.toString() + apiKey);
-    })
-    .then((res) => res.json())
-    .then((url) => {
-      giphyGen(url);
-    });
+  randomGiphy(randomUrl);
 });
+// button.addEventListener("click", () => {
+//   fetch(randomUrl)
+//     .then((res) => res.json())
+//     .then((word) => {
+//       return fetch(giphyUrl + word.toString() + apiKey);
+//     })
+//     .then((res) => res.json())
+//     .then((url) => {
+//       giphyGen(url);
+//     });
+// });
+
+async function randomGiphy(url) {
+  try {
+    const randomWordsUrl = await fetch(url);
+    const randomWordsJson = await randomWordsUrl.json();
+    console.log(randomWordsJson);
+    const giphyData = await fetch(
+      giphyUrl + randomWordsJson[0].toString() + apiKey
+    );
+    console.log(giphyData);
+    const giphyDataJson = await giphyData.json();
+    giphyGen(giphyDataJson);
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 //Function to generate gifhy
 function giphyGen(url) {
