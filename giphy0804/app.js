@@ -54,6 +54,7 @@ async function randomGiphy(url) {
       giphyUrl + randomWordsJson[0].toString() + apiKey
     );
     const giphyDataJson = await giphyData.json();
+    giphyGen(giphyDataJson);
   } catch (error) {
     console.log(error);
   }
@@ -62,9 +63,14 @@ async function randomGiphy(url) {
 //Function to generate gifhy
 function giphyGen(url) {
   const giphyData = url.data;
-  for (let i = 0; i < giphyData.length; i++) {
+  if (giphyData.length == "") {
     imgContainer.innerHTML = `
+        <img src="https://media.giphy.com/media/3oEduTcqgubNJO8xag/giphy.gif" style="height:100%;" class="card-img-top" alt="happy-big-smile">`;
+  } else {
+    for (let i = 0; i < giphyData.length; i++) {
+      imgContainer.innerHTML = `
           <img src="${giphyData[i].images.fixed_height.url}" class="card-img-top" style="height:100%;" alt="${giphyData[i].title}">`;
+    }
   }
   button.classList.toggle("btn-success");
 }
