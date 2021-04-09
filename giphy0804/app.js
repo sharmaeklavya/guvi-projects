@@ -14,11 +14,10 @@ imgContainer.style.height = "20rem";
 imgContainer.innerHTML = `
           <img src="https://media.giphy.com/media/3oEduTcqgubNJO8xag/giphy.gif" style="height:100%;" class="card-img-top" alt="happy-big-smile">`;
 const cardBody = createBootstrap("div", "card-body mx-auto");
-cardBody.innerHTML = `
-    <div class="card-body">
-      <button type="button" class="button btn btn-primary">Show Me</a>
-    </div> `;
-
+const button = createBootstrap("button", "button btn btn-primary");
+button.setAttribute("type", "button");
+button.innerHTML = "Show Me";
+cardBody.append(button);
 card.append(imgContainer, cardBody);
 colCard.append(card);
 colTitle.append(title);
@@ -38,29 +37,31 @@ const randomUrl = "https://random-word-api.herokuapp.com//word?number=1";
 const giphyUrl = "https://api.giphy.com/v1/gifs/search?q=";
 const apiKey = "&api_key=YOrFrobTbZln2vz9RNNpA66vwGVuZGsP&limit=1";
 
-// Selector
-const button = document.querySelector(".button");
+// button selector
+const showMeBtn = document.querySelector(".button");
 
 //Event listener
-button.addEventListener("click", () => {
+showMeBtn.addEventListener("click", () => {
   randomGiphy(randomUrl);
+  showMeBtn.classList.toggle("btn-success");
 });
 
+// Async function to gen random giphy url
 async function randomGiphy(url) {
   try {
-    const randomWordsUrl = await fetch(url);
-    const randomWordsJson = await randomWordsUrl.json();
-    const giphyData = await fetch(
-      giphyUrl + randomWordsJson[0].toString() + apiKey
+    const randomApiUrl = await fetch(url);
+    const randomApiJson = await randomApiUrl.json();
+    const giphyApiUrl = await fetch(
+      giphyUrl + randomApiJson[0].toString() + apiKey
     );
-    const giphyDataJson = await giphyData.json();
-    giphyGen(giphyDataJson);
+    const giphyApiUrlJson = await giphyApiUrl.json();
+    giphyGen(giphyApiUrlJson);
   } catch (error) {
     console.log(error);
   }
 }
 
-//Function to generate gifhy
+//Function to display gifhy
 function giphyGen(url) {
   const giphyData = url.data;
   if (giphyData.length == "") {
@@ -72,7 +73,6 @@ function giphyGen(url) {
           <img src="${giphyData[i].images.fixed_height.url}" class="card-img-top" style="height:100%;" alt="${giphyData[i].title}">`;
     }
   }
-  button.classList.toggle("btn-success");
 }
 
 // button.addEventListener("click", () => {
