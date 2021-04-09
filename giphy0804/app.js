@@ -35,7 +35,7 @@ function createBootstrap(ele, className = "") {
 // api urls and key
 const randomUrl = "https://random-word-api.herokuapp.com//word?number=1";
 const giphyUrl = "https://api.giphy.com/v1/gifs/search?q=";
-const apiKey = "&api_key=YOrFrobTbZln2vz9RNNpA66vwGVuZGsP&limit=5";
+const apiKey = "&api_key=YOrFrobTbZln2vz9RNNpA66vwGVuZGsP&limit=1";
 
 // Selector
 const button = document.querySelector(".button");
