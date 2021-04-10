@@ -161,15 +161,33 @@ function createCuisineCards(cuisine, cuisineArr) {
     }</li>
     <li class="list-group-item font-weight-bold">Ingredients: </li>
   `;
-
+  // Ingredients
   const ingredientsList = cuisine.ingredients;
   const ingredientsItem = ingredientsList.map((ing) => {
-    const ingre_dients = createBootstrap("ul", "list-group-item ml-2");
+    const ingre_dients = createBootstrap("li", "list-group-item ml-2");
     ingre_dients.innerHTML = ing.text;
     return ingre_dients;
   });
-
-  cuisineList.append(...ingredientsItem);
+  // Vitamins
+  const nutrientsList = cuisine.totalNutrients;
+  let nutrientsItem = [];
+  let nutrientsItemTitle = createBootstrap(
+    "li",
+    "list-group-item font-weight-bold"
+  );
+  nutrientsItemTitle.innerHTML = "Vitamins: ";
+  for (listItem in nutrientsList) {
+    const item = createBootstrap("li", "list-group-item ml-2");
+    if (nutrientsList[listItem].label.includes("Vitamin")) {
+      item.innerHTML = `${nutrientsList[listItem].label}: ${nutrientsList[
+        listItem
+      ].quantity.toFixed(2)}`;
+      nutrientsItem.push(item);
+    }
+  }
+  nutrientsItem.unshift(nutrientsItemTitle);
+  //appending dynamically created element
+  cuisineList.append(...ingredientsItem, ...nutrientsItem);
   cuisineContainer.append(cuisineImg, cuisineTitle, cuisineList);
   cuisineContainerCol.append(cuisineContainer);
   cuisineArr.push(cuisineContainerCol);
