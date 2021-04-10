@@ -80,7 +80,7 @@ async function fetchRecipeApiData(url, foodItem) {
     searchByLabel(api_obj);
   } catch {
     console.log("Api error occured");
-    cardDeckRow.innerHTML = "Oops! something went wrong! Please try again.";
+    cardDeckTitle.innerHTML = "Oops! something went wrong! Please try again.";
   }
 }
 
@@ -89,7 +89,6 @@ function searchByLabel(label) {
   const health_label = label.hits;
   const dietType = [];
   for (let i = 0; i < health_label.length; i++) {
-    console.log(health_label);
     dietType.push(health_label[i].recipe.healthLabels);
   }
   const cardArr = randomLabel(health_label.length, dietType);
