@@ -122,7 +122,7 @@ function foodCards(cardArr, health_label) {
         }
       }
       cardDeckRow.innerHTML = "";
-      cardDeckTitle.innerHTML = "";
+      cardDeckTitle.innerHTML = `<h3 class="h5 text-success">Mouth watering, huh? 😋</h3>`;
       cardDeckRow.append(...cuisineArr);
     });
   });
