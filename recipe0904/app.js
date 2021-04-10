@@ -1,11 +1,11 @@
 // Bootstrap html elements
-const container = createBootstrap("div", "container");
+const container = createBootstrap("div", "container box");
 //Title section
 const titleRow = createBootstrap("div", "row");
 const titleCol = createBootstrap("div", "col-md-12 text-center mt-5");
-const titleHead = createBootstrap("h1", "h1 text-primary");
-titleHead.innerText = "Welcome Stranger";
-const subTitleHead = createBootstrap("h5", "h5");
+const titleHead = createBootstrap("h1", "h1 siteHead");
+titleHead.innerText = "Hello, Stranger!";
+const subTitleHead = createBootstrap("h2", "h5");
 subTitleHead.innerText = "Want to eat healthy food?";
 //title append
 titleCol.append(titleHead, subTitleHead);
@@ -19,7 +19,7 @@ const searchForm = createBootstrap(
 );
 const inputSearchForm = createBootstrap("input", "form-control mr-sm-2");
 inputSearchForm.setAttribute("type", "search");
-inputSearchForm.placeholder = "Search any food item";
+inputSearchForm.placeholder = "Search now to end your cravings...";
 inputSearchForm.style.width = "70%";
 const buttonSearchForm = createBootstrap(
   "button",
@@ -35,14 +35,18 @@ searchRow.append(searchCol);
 const cardRow = createBootstrap("div", "row");
 const cardCol = createBootstrap("div", "col-md-12 mt-3");
 const cardDeck = createBootstrap("div", "card-deck");
+const cardDeckTitleRow = createBootstrap("div", "row");
+const cardDeckTitle = createBootstrap("div", "col-md-12 ml-3 my-3");
 const cardDeckRow = createBootstrap("div", "row");
-cardDeckRow.style.height = "100px";
 // card append
-cardDeck.append(cardDeckRow);
+cardDeckTitleRow.append(cardDeckTitle);
+cardDeck.append(cardDeckTitleRow, cardDeckRow);
 cardCol.append(cardDeck);
 cardRow.append(cardCol);
 container.append(titleRow, searchRow, cardRow);
+// container append to the body
 document.body.append(container);
+
 // function to create bootstrap html elements
 function createBootstrap(ele, className = "") {
   let element = document.createElement(ele);
@@ -50,23 +54,34 @@ function createBootstrap(ele, className = "") {
   return element;
 }
 
-// api urls and key
-const food = "potato";
+// Api url and key
 const apiId = "&app_id=a9f695f1";
 const apiKey = "&app_key=cfb5e736d30f9c5967c33bdeb95d2cca";
 const api_base_url = "https://api.edamam.com/search?q=";
 
+// search form event listener
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  container.classList.remove("box");
+  titleHead.innerHTML = `Welcome, Stranger`;
+  subTitleHead.innerHTML = "Hope, you find things you are looking for";
+  cardDeckRow.innerHTML = "";
+  const value = inputSearchForm.value;
+  // collecting input value from form
+  fetchRecipeApiData(api_base_url, value);
+});
+
 // Async function to fetch data from food API
-async function fetchRecipeApiData(url) {
+async function fetchRecipeApiData(url, foodItem) {
   try {
-    const api = await fetch(url + food + apiId + apiKey);
+    const api = await fetch(url + foodItem + apiId + apiKey);
     const api_obj = await api.json();
+    //exporting api data to following function
     searchByLabel(api_obj);
   } catch {
     console.log("Api error occured");
   }
 }
-fetchRecipeApiData(api_base_url);
 
 // function to create health lables/type
 function searchByLabel(label) {
@@ -82,14 +97,13 @@ function searchByLabel(label) {
       "col-md-4 col-lg-3 d-flex justify-content-center"
     );
     const cardContainer = createBootstrap("div", "card rounded-lg my-2");
-    cardContainer.style.width = "18rem";
-    cardContainer.style.height = "5rem";
     cardContainer.innerHTML = `<div class="card-body">
-    <p class="card-text" style="color:rgba(55, 65, 81,1);">${card}</p>    
+    <p class="card-text card-extra-text">${card}</p>    
   </div>`;
     randomBgColor(cardContainer);
     cardContainerCol.append(cardContainer);
     cardDeckRow.append(cardContainerCol);
+    cardDeckTitle.innerHTML = `<h3 class="h6">Choose your type:</h3>`;
   });
   foodCards(cardArr, health_label);
 }
@@ -107,6 +121,7 @@ function foodCards(cardArr, health_label) {
         }
       }
       cardDeckRow.innerHTML = "";
+      cardDeckTitle.innerHTML = "";
       cardDeckRow.append(...cuisineArr);
     });
   });
@@ -133,16 +148,15 @@ function createCuisineCards(cuisine, cuisineArr) {
     <li class="list-group-item">Meal Type: ${
       cuisine.mealType !== undefined ? cuisine.mealType : "Not Available"
     }</li>
-    <li class="list-group-item">Dish Type: ${
-      cuisine.dishType !== undefined ? cuisine.dishType : "Not Available"
-    }</li>
     <li class="list-group-item">Calories: ${
       cuisine.calories !== undefined
         ? Math.floor(cuisine.calories)
         : "Not Available"
-    }</li>
+    } Kcals</li>
     <li class="list-group-item">Diet Type: ${
-      cuisine.dietLabels !== undefined ? cuisine.dietLabels : "Not Available"
+      cuisine.dietLabels !== undefined || cuisine.dietLabels !== ""
+        ? cuisine.dietLabels
+        : "Not Available"
     }</li>
     <li class="list-group-item font-weight-bold">Ingredients: </li>
   `;
@@ -161,7 +175,6 @@ function createCuisineCards(cuisine, cuisineArr) {
 }
 
 // function to display random health labels
-
 function randomLabel(num, label) {
   const randomNum = Math.floor(Math.random() * num);
   return label[randomNum];
