@@ -80,6 +80,7 @@ async function fetchRecipeApiData(url, foodItem) {
     searchByLabel(api_obj);
   } catch {
     console.log("Api error occured");
+    cardDeckRow.innerHTML = "Oops! something went wrong! Please try again.";
   }
 }
 
@@ -88,6 +89,7 @@ function searchByLabel(label) {
   const health_label = label.hits;
   const dietType = [];
   for (let i = 0; i < health_label.length; i++) {
+    console.log(health_label);
     dietType.push(health_label[i].recipe.healthLabels);
   }
   const cardArr = randomLabel(health_label.length, dietType);
@@ -97,7 +99,7 @@ function searchByLabel(label) {
       "col-md-4 col-lg-3 d-flex justify-content-center"
     );
     const cardContainer = createBootstrap("div", "card rounded-lg my-2");
-    cardContainer.innerHTML = `<div class="card-body">
+    cardContainer.innerHTML = `<div class="card-body card_body">
     <p class="card-text card-extra-text">${card}</p>    
   </div>`;
     randomBgColor(cardContainer);

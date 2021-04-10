@@ -12,3 +12,8 @@
     color: rgba(146, 64, 14);
     font-family: 'Times New Roman', Times, serif;
 }
+
+.card_body{
+    width: 18rem;
+    cursor: pointer;
+}
