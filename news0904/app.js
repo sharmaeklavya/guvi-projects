@@ -161,7 +161,7 @@ function newsData(data) {
 function newsLeft(news) {
   for (let i = 2; i < 5; i++) {
     const row = bootstrap("div", "row");
-    const col = bootstrap("div", "col-md-12 pl-0");
+    const col = bootstrap("div", "col-md-12");
     col.innerHTML = `<div class="card mb-3" style="max-width: 540px">
   <div class="row no-gutters border-bottom pb-3">
     <div class="col-md-7">
@@ -183,7 +183,7 @@ function newsLeft(news) {
       class="card-img h-75 my-3" style="object-fit:cover;"
       alt="${news[i].title}"
       />
-      <p class="card-text text-size">Last updated: <br/>${
+      <p class="card-text text-size pl-3">Last updated: <br/>${
         news[i].updated_date.split("T")[0]
       }</p>
     </div>
@@ -241,7 +241,7 @@ function newsCenter(news) {
 function newsRight(news) {
   for (let i = 6; i < 10; i++) {
     const row = bootstrap("div", "row");
-    const col = bootstrap("div", "col-md-12 pr-0");
+    const col = bootstrap("div", "col-md-12");
     col.innerHTML = `<div class="card mb-3" style="max-width: 540px">
       <div class="row no-gutters border-bottom pb-3">
         <div class='news-type text-center w-100 my-1'>
@@ -265,7 +265,7 @@ function newsRight(news) {
         }" target="_blank">${news[i].title}</a></h5>    
       </div>
     </div>
-    <div class="news-type text-center" style="width:100%;">
+    <div class="news-type text-center" style="width:90%;">
       <p class="card-text text-size">${news[i].byline}</p>
       <p class="card-text text-size">Last updated: ${
         news[i].updated_date.split("T")[0]
