@@ -1,0 +1,25 @@
+.head-title{
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
+
+.navbar-list{
+    text-transform: uppercase;
+}
+
+.text-size{
+    font-size: 0.8rem;
+}
+
+.a-link{
+    text-transform: none;
+    text-decoration: none;
+    color: black;
+}
+
+.a-link:hover{
+    text-transform: none;
+    text-decoration: none;
+
+}
