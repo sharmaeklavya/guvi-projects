@@ -4,7 +4,7 @@ let url =
 // creating bootstrap html/css tags/class
 let container = createBootstrap("div", "container");
 let headRow = createBootstrap("div", "row mt-4");
-let bodyRow = createBootstrap("div", "row btn-row");
+let bodyRow = createBootstrap("div", "row");
 let headCol = createBootstrap("div", "col-lg-12");
 let table = createBootstrap("table", "table");
 let tHead = createBootstrap("thead", "thead-dark");
@@ -24,10 +24,10 @@ thEmail.innerHTML = "Email";
 let tBody = createBootstrap("tbody", "table-body");
 let numCols = createBootstrap("div", "col-lg-8 text-left");
 let prevNextCols = createBootstrap("div", "col-lg-4 text-right");
-let prevBtn = createBootstrap("button", "btn-info page-btn");
+let prevBtn = createBootstrap("button", "btn btn-primary page-btn");
 prevBtn.setAttribute("type", "button");
 prevBtn.innerHTML = "Previous";
-let nextBtn = createBootstrap("button", "btn-info page-btn");
+let nextBtn = createBootstrap("button", "btn btn-primary page-btn");
 nextBtn.setAttribute("type", "button");
 nextBtn.innerHTML = "Next";
 
@@ -42,11 +42,19 @@ bodyRow.append(prevNextCols, numCols);
 container.append(headRow, bodyRow);
 document.body.append(container);
 
+// Function to create bootstrap element
+function createBootstrap(ele, className = "") {
+  let element = document.createElement(ele);
+  element.setAttribute("class", className);
+  return element;
+}
+
 // API Data and Functions
 fetch(url)
   .then((res) => res.json())
   .then((list_items) => {
     let current_page = 1;
+    let preNextPage = 1;
     let rows = 10;
 
     function dataList(items, wrapper, rows_per_page, page) {
@@ -76,45 +84,33 @@ fetch(url)
     }
 
     function paginationButton(page, items) {
-      let prev_next_page = 0;
-      let button = createBootstrap("button", "button");
+      let button = createBootstrap("button", "btn btn-primary page-btn");
       button.setAttribute("type", "button");
-      button.classList.add("btn-info", "page-btn");
       button.innerText = page;
       if (current_page == page) button.classList.add("active");
       button.addEventListener("click", () => {
         current_page = page;
-        prev_next_page = current_page;
         dataList(items, tBody, rows, current_page);
-        // let current_btn = document.querySelector(".pagenumbers button.active");
         button.classList.add("active");
+        preNextPage = current_page;
       });
-
-      prevBtn.addEventListener("click", () => {
-        if (prev_next_page > 1) {
-          prev_next_page--;
-          dataList(items, tBody, rows, prev_next_page);
-        }
-      });
-
-      nextBtn.addEventListener("click", () => {
-        const btnNum = button.parentElement.childElementCount;
-        if (prev_next_page < btnNum && current_page == page) {
-          prev_next_page++;
-          dataList(items, tBody, rows, prev_next_page);
-        }
-      });
-
       return button;
     }
+
+    prevBtn.addEventListener("click", () => {
+      if (preNextPage <= rows && preNextPage > 1) {
+        preNextPage--;
+        dataList(list_items, tBody, rows, preNextPage);
+      }
+    });
+
+    nextBtn.addEventListener("click", () => {
+      if (preNextPage < rows && preNextPage >= 1) {
+        preNextPage++;
+        dataList(list_items, tBody, rows, preNextPage);
+      }
+    });
 
     dataList(list_items, tBody, rows, current_page);
     createBtns(list_items, numCols, rows);
   });
-
-// Function to create bootstrap element
-function createBootstrap(ele, className = "") {
-  let element = document.createElement(ele);
-  element.setAttribute("class", className);
-  return element;
-}
