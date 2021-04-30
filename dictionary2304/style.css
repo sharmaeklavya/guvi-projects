@@ -1,0 +1,27 @@
+.navbar__brand{
+ font-size: 3rem;
+ font-weight: 400;
+}
+
+.navbar__toggler{
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+}
+
+.nav__item{
+    padding: 0.5rem 0;
+}
+
+.fa__search{
+    position: relative;
+    top: 3rem;
+    left: 0;
+    font-size: 2rem;
+}
+
+.form__control{
+    height: 60px;
+    padding-left: 3rem;
+    border-radius: 50px;
+}

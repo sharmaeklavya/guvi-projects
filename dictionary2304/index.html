@@ -20,9 +20,82 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css" />
     <title>Dictionary App</title>
   </head>
   <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+          <nav class="navbar-expand-lg navbar-dark bg-primary vh-100">
+            <div class="logo">
+              <a class="navbar-brand navbar__brand ml-5" href="#">Dictions</a>
+              <button
+                class="navbar-toggler navbar__toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+            <div
+              class="collapse navbar-collapse ml-4"
+              id="navbarSupportedContent"
+            >
+              <ul class="navbar-nav d-block">
+                <li class="nav-item my-4">
+                  <a class="nav-link" href="#">Profile</a>
+                  <ul class="navbar-nav d-block ml-4 text-white">
+                    <li class="nav-item nav__item">
+                      <i class="fas fa-user-alt mr-2"></i>User Profile
+                    </li>
+                    <li class="nav-item nav__item">
+                      <i class="far fa-file-user mr-2"></i>User Account
+                    </li>
+                    <li class="nav-item nav__item">
+                      <i class="far fa-cog mr-2"></i>Settings
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item my-4">
+                  <a class="nav-link" href="#">Prominent Words</a>
+                  <ul class="navbar-nav d-block ml-4 text-white">
+                    <li class="nav-item nav__item">
+                      <i class="far fa-spell-check mr-2"></i>Words of the day
+                    </li>
+                    <li class="nav-item nav__item">
+                      <i class="far fa-sort-alpha-up mr-2"></i>Words of the week
+                    </li>
+                    <li class="nav-item nav__item">
+                      <i class="far fa-book-reader mr-2"></i>Words of the month
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="col-md-8">
+          <header class="header">
+            <form>
+              <i class="fal fa-search fa__search ml-2"></i>
+              <input
+                type="search"
+                class="form-control form__control"
+                id="inputSearch"
+                aria-describedby="searchHelp"
+              />
+            </form>
+          </header>
+          <div class="row card__row"></div>
+        </div>
+      </div>
+    </div>
+    <script src="font.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
