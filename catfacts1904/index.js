@@ -3,7 +3,7 @@ const container = bootstrap("div", "container");
 const row = bootstrap("div", "row");
 const picCol = bootstrap("div", "col-md-6 ");
 const contentCol = bootstrap("div", "col-md-6 content-bg");
-const imageDiv = bootstrap("div", "cat-img px-5 pb-5");
+const imageDiv = bootstrap("div", "cat-img px-2");
 const imageContent = bootstrap("h1", "h2 text-warning text-center py-2");
 imageContent.innerText = "Interesting Cat Facts";
 
