@@ -32,7 +32,7 @@ function bootstrap(ele, className = "") {
 }
 
 const apiURI =
-  "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=1";
+  "https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=10";
 
 async function fetchData(uri) {
   try {
