@@ -3,8 +3,11 @@ const form = document.querySelector("form");
 const cardRow = document.querySelector(".card__row");
 
 //Dictionary API
+const token = config.apiURI;
+const key = config.apiKEY;
+
 async function apiCall(word) {
-  const promise = await fetch(apiURI + word + apiKEY);
+  const promise = await fetch(token + word + key);
   const json = await promise.json();
   console.log(json);
   cardRow.innerHTML = "";
