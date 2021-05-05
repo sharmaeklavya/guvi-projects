@@ -102,7 +102,7 @@ function interestingWords(words) {
   cardBody.innerHTML = `<h5 class="card-title">${word.name}</h5>
       <p class="card-text">${word.def}</p>
       <div class="img-contain">
-        <img src="images/learn.jpeg class="word-img w-100 h-100" alt="word-image" />
+        <img src="images/learn.jpeg" class="word-img w-100 h-100" alt="word-image" />
       </div>
       `;
   card.appendChild(cardBody);
