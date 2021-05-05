@@ -67,12 +67,28 @@
               <span class="month-word btn btn-primary">Words of the Month</span>
             </li>
           </ul>
-          <ul class="list-group list-group-flush list__group mt-3 px-2">
-            <li class="list-group-item">
-              <span><i class="far fa-text mr-2"></i></span>
-              <span>Interesting Words</span>
-            </li>
-          </ul>
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <span class="navbar-brand">
+              <i class="far fa-text mr-2"></i>
+              Interesting Words
+            </span>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#wordSupportContent"
+              aria-controls="wordSupportContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="wordSupportContent">
+              <ul
+                class="list-group list-group-flush list__group mt-3 px-2"
+              ></ul>
+            </div>
+          </nav>
         </div>
         <div class="col-lg-8">
           <form class="px-2">
