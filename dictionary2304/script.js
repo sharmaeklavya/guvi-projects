@@ -3,14 +3,12 @@ const form = document.querySelector("form");
 const cardRow = document.querySelector(".card__row");
 
 //Dictionary API
-const apiURI = "https://www.dictionaryapi.com/api/v3/references/learners/json/";
-const apiKEY = "?key=14eb0ec4-dd42-4f5c-a418-f4f08c88a165";
-
 async function apiCall(word) {
-  const call = await fetch(apiURI + word + apiKEY);
-  const json = await call.json();
+  const promise = await fetch(apiURI + word + apiKEY);
+  const json = await promise.json();
   console.log(json);
-  let tempArr = [];
+  cardRow.innerHTML = "";
+
   for (let i = 0; i < json.length; i++) {
     const cardCol = bootstrap("div", "col-lg-6");
     const card = bootstrap("div", "card mt-4");
@@ -21,9 +19,8 @@ async function apiCall(word) {
       <p class="card-text">${json[i].shortdef}</p>`;
     card.appendChild(cardBody);
     cardCol.appendChild(card);
-    tempArr.push(cardCol);
+    cardRow.appendChild(cardCol);
   }
-  cardRow.replaceWith(...tempArr);
 }
 
 form.addEventListener("submit", (e) => {

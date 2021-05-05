@@ -16,12 +16,12 @@
 .fa__search{
     position: relative;
     top: 3rem;
-    left: 0;
-    font-size: 2rem;
+    left: 0;    
 }
 
 .form__control{
     height: 60px;
     padding-left: 3rem;
     border-radius: 50px;
+    font-size: 2rem;
 }
