@@ -1,4 +1,4 @@
-export default function Card(props) {
+export default function Card(props) {  
   let isDisabled = props.disableState.includes(props.data.id);
   return (
     <div className="col-lg-4">

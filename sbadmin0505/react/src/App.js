@@ -9,7 +9,7 @@ import Sidebar from "./component/sidebar";
 import Dashboard from "./component/dashboard";
 import Footer from "./component/footer";
 import ListUsers from "./users/ListUser";
-import CreateUser from "./users/CreateUser";
+import CreateUser from './users/CreateUser';
 import UpdateUser from "./users/UpdateUser";
 import ListProducts from "./products/ListProduct";
 import CreateProduct from "./products/CreateProduct";

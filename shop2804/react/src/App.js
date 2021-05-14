@@ -66,6 +66,7 @@ export default function App() {
   const [disable, setDisable] = useState([]);
 
   const addToCart = (item) => {
+    
     setCart([...cart, item]);
     setTotalPrice(+(totalPrice + item.price).toFixed(2));
     setTotalItems(totalItems + 1);

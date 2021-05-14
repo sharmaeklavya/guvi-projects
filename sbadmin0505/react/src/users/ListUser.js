@@ -2,16 +2,20 @@ import { Link } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import UserContext from "../usercontext";
 
-export default function ListUsers(props) {
-  const users = useContext(UserContext);
+export default function ListUsers() {
+  // const users = useContext(UserContext);
+
   const [userList, setUserList] = useState([]);
   // use effect
-  useEffect(async () => {
-    const getPromise = await fetch(
-      "https://6093bd12a7e53a0017951767.mockapi.io/users"
-    );
-    const getData = await getPromise.json();
-    setUserList([...getData]);
+  useEffect(() => {
+    async function fetchData() {
+      const getPromise = await fetch(
+        "https://6093bd12a7e53a0017951767.mockapi.io/users"
+      );
+      const getData = await getPromise.json();
+      setUserList([...getData]);
+    }
+    fetchData()
   }, []);
 
   return (
@@ -63,9 +67,12 @@ export default function ListUsers(props) {
                     </tbody>
                   </>
                 ) : (
-                  <>
-                    {" "}
-                    <h3 className="h6">Loading...</h3>
+                  <>                    
+                    <thead>
+                      <tr>
+                        <td className="h6">Loading...</td>
+                      </tr>
+                    </thead>
                   </>
                 )}
               </table>
