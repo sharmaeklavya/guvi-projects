@@ -39,6 +39,7 @@ export default function CreateUser() {
         position,
         location,
         age,
+        startDate,
         salary,
       }),
       headers: {
