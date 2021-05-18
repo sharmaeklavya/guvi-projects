@@ -155,10 +155,13 @@ commentForm.appendChild(commentBtn);
 const commentRow = bootstrap("div", "row");
 const commentCol = bootstrap("div", "col-lg-6");
 const commentCardRow = bootstrap("div", "row mb-2");
+const commentTitle = bootstrap("h4", "h4 font-weight-bold pl-3 pb-2");
+commentTitle.innerText = "Comments:";
 const timelineCol = bootstrap("div", "col-lg-6 ml-auto timeline");
 const timelineBody = bootstrap("div", "card timeline__card mb-2 p-4");
-const timelineTitle = bootstrap("h5", "h5 font-weight-bold text-center");
+const timelineTitle = bootstrap("h5", "h4 font-weight-bold text-center");
 timelineTitle.innerText = "Other articles";
+commentCardRow.appendChild(commentTitle);
 timelineBody.appendChild(timelineTitle);
 timelineCol.appendChild(timelineBody);
 
@@ -340,7 +343,7 @@ const displaySinglePost = (...postDetails) => {
   // Emptying main content box, changing title,
   postCardRow.innerText = "";
   postTitle.innerText = title;
-  createAPost.classList.add("hidden");
+  createAPost.classList.remove("hidden");
   // creating single post page
   const postCardCol = bootstrap("div", "col-lg-12");
   const postCard = bootstrap("div", "card single-card");
