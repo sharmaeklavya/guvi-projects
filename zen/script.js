@@ -340,7 +340,7 @@ const displaySinglePost = (...postDetails) => {
   // Emptying main content box, changing title,
   postCardRow.innerText = "";
   postTitle.innerText = title;
-  createAPost.classList.add("hidden");
+  createAPost.classList.remove("hidden");
   // creating single post page
   const postCardCol = bootstrap("div", "col-lg-12");
   const postCard = bootstrap("div", "card single-card");
