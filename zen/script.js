@@ -427,7 +427,7 @@ function postComment(e) {
   if (inputName !== "" && inputComment !== "") {
     const commentCardCol = bootstrap("div", "col-lg-12");
     const commentBody = bootstrap("div", "card mb-3");
-    commentBody.innerHTML = `<div class="card-body">    
+    commentBody.innerHTML = `<div class="card-body bg-transparent text-dark">    
       <p class="card-text comment__text h6 pt-2">${inputComment}</p>      
     </div>
     <div class="card-footer text-muted d-flex justify-content-between">
