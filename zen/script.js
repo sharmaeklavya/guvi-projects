@@ -211,7 +211,7 @@ const retrieveTheme = () => {
   if (theme != null) {
     containerFluid.classList.remove("default", "bg-color");
     containerFluid.classList.add(theme);
-    toggleInput.checked == toggle;
+    toggleInput.checked = toggle;
   }
 };
 retrieveTheme();
