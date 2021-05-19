@@ -52,12 +52,12 @@ createAPost.innerHTML = `<div class="modal fade" id="postModal" tabindex="-1" ar
 <div class="modal-dialog">
   <div class="modal-content">  
     <div class="modal-header">    
-      <h5 class="modal-title" id="ModalLabel">Create a post</h5>
+      <h5 class="modal-title text-dark" id="ModalLabel">Create a post</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>      
     </div>
-    <div class="modal-body">    
+    <div class="modal-body bg-transparent text-dark">    
         <form class="description-form">
         <p class="h6 text-success mb-3 post-label hidden">Post created successfully</p> 
             <div class="form-group row">
