@@ -2,7 +2,7 @@
     font-family: 'Times New Roman', Times, serif;    
 }
 
-.bg-black{
+.bg-color{
     /* background-color: rgba(31, 41, 55); */
     background-image: linear-gradient(to right, #34d399, #3b82f6);
     color: whitesmoke;
@@ -35,7 +35,7 @@
 .all-card{
     height: 14rem; 
     cursor: pointer;    
-    border: 1.5px solid #3b82f6;    
+    border: 1px solid #3b82f6;    
 }
 
 .single-card{    
