@@ -1,6 +1,5 @@
 //Gloal variables
 let queryId = 1;
-let toggle = false;
 let singlePostId;
 
 // API path to locate the data on the server
@@ -19,7 +18,7 @@ function bootstrap(ele, className = "") {
 //Bootstrap navbar element
 const navBar = bootstrap(
   "nav",
-  "navbar navbar-expand-lg sticky-top navbar-dark bg-dark"
+  "navbar navbar-expand-lg sticky-top navbar-dark bg-color"
 );
 navBar.innerHTML = `<div class="container">
   <div class="logo">
@@ -37,7 +36,7 @@ navBar.innerHTML = `<div class="container">
       <li class="nav-item m-2">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#postModal">Create a post</button>
       </li>
-      <li class="nav-item m-2">
+      <li class="nav-item m-2">        
         <label class="switch">
           <input type="checkbox" class="checked">
           <span class="slider round"></span>
@@ -158,7 +157,7 @@ const commentCardRow = bootstrap("div", "row mb-2");
 const commentTitle = bootstrap("h4", "h4 font-weight-bold pl-3 pb-2");
 commentTitle.innerText = "Comments:";
 const timelineCol = bootstrap("div", "col-lg-6 ml-auto timeline");
-const timelineBody = bootstrap("div", "card timeline__card mb-2 p-4");
+const timelineBody = bootstrap("div", "card timeline__card mb-2 p-4 text-dark");
 const timelineTitle = bootstrap("h5", "h4 font-weight-bold text-center");
 timelineTitle.innerText = "Other articles";
 commentCardRow.appendChild(commentTitle);
@@ -192,10 +191,39 @@ const toggleInput = document.querySelector(".checked");
 
 // toggling event listener to switch to dark/ light theme
 toggleBtn.addEventListener("click", () => {
-  toggleInput.checked && toggle === false
-    ? containerFluid.classList.add("bg-black")
-    : containerFluid.classList.remove("bg-black");
+  if (toggleInput.checked) {
+    containerFluid.classList.toggle("bg-color");
+  }
+  if (containerFluid.classList.contains("bg-color")) {
+    localStorage.setItem("color-theme", "bg-color");
+    localStorage.setItem("status", true);
+  } else {
+    localStorage.setItem("color-theme", "default");
+    localStorage.setItem("status", false);
+  }
 });
+
+// function to save the current theme
+const retrieveTheme = () => {
+  let theme = localStorage.getItem("color-theme");
+  let toggle = localStorage.getItem("status");
+  toggle = JSON.parse(toggle);
+  if (theme != null) {
+    containerFluid.classList.remove("default", "bg-color");
+    containerFluid.classList.add(theme);
+    toggleInput.checked == toggle;
+  }
+};
+retrieveTheme();
+
+// Window event listener to keep the theme in all the tabs
+window.addEventListener(
+  "storage",
+  function () {
+    retrieveTheme();
+  },
+  false
+);
 
 // post form event listener to collect data from user
 createPostForm.addEventListener("submit", (e) => {
@@ -214,7 +242,6 @@ const collectData = () => {
   setTimeout(() => {
     postLabel.classList.add("hidden");
     window.location.reload();
-    toggle = true;
   }, 2000);
   queryId++;
   createPostForm.reset();
