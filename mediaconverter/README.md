@@ -18,6 +18,7 @@ Most Important!!!
  1. Do install FFMPEG plugin before running the app
  2. For Mac users => brew install ffmpeg
  3. For Windows users => [Download from here](https://www.ffmpeg.org/download.html)
+ 4. For Windows users => [Installation tutorial](https://www.wikihow.com/Install-FFmpeg-on-Windows)
 
 To simply run the app
 
