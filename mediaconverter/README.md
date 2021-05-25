@@ -16,5 +16,5 @@ Most Important!!!
  2. For Mac use => brew install ffmpeg
  3. For Windows use => [Download from here](https://www.ffmpeg.org/download.html)
 
-To Start the APP
+To Run the APP
 1. Use command in Terminal/Command Prompt/PowerShell - npm run start or npm start
