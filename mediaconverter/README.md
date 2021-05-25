@@ -1,6 +1,6 @@
 # Electron React Media Converter Desktop APP
 
-Packages Installed :
+NPM Package Dependency:
 
 1. npm i --save-dev electron electron-reload electron-builder
 
@@ -12,9 +12,11 @@ Packages Installed :
 
 
 Most Important!!!
+
  1. Do install FFMPEG 
  2. For Mac use => brew install ffmpeg
  3. For Windows use => [Download from here](https://www.ffmpeg.org/download.html)
 
 To Run the APP
+
 1. Use command in Terminal/Command Prompt/PowerShell - npm run start or npm start
