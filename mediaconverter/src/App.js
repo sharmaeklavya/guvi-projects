@@ -6,7 +6,6 @@ const process = window.require("child_process");
 
 let selectedFilePath;
 let selectedFolderPath;
-let dir = "./hls-media";
 
 function project(e) {
   const button = e.target;
