@@ -18,7 +18,7 @@ export default function CreateUser() {
   const [salary, setSalary] = useState(0);
   const [submit, setSubmit] = useState("");
 
-  let userSubmit = async () => {    
+  let userSubmit = async () => {
     userData.setUserList([
       ...userData.userList,
       {
